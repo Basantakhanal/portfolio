@@ -1,13 +1,70 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Overlaymenu from "./OverlayMenu";
 import Logo from "/src/assets/logo.png";
-
 import { FiMenu } from "react-icons/fi";
-
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [forceVisible, setForceVisible] = useState(false);
+
+  const lastScrollV = useRef(0);
+  const timerId = useRef(null);
+
+  // Intersection Observer to always show navbar at #home
+  useEffect(() => {
+    const homeSection = document.querySelector("#home");
+    if (!homeSection) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setForceVisible(true);
+          setVisible(true);
+        } else {
+          setForceVisible(false);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(homeSection);
+    return () => observer.unobserve(homeSection);
+  }, []);
+
+  // Scroll logic
+  useEffect(() => {
+    const handleScroll = () => {
+      if (forceVisible) {
+        setVisible(true);
+        return;
+      }
+
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollV.current) {
+        // scrolling down → hide navbar
+        setVisible(false);
+      } else {
+        // scrolling up → show navbar
+        setVisible(true);
+      }
+
+      lastScrollV.current = currentScrollY;
+
+      // Auto-hide after 3s of inactivity
+      if (timerId.current) clearTimeout(timerId.current);
+      timerId.current = setTimeout(() => {
+        setVisible(false);
+      }, 3000);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (timerId.current) clearTimeout(timerId.current);
+    };
+  }, [forceVisible]);
 
   return (
     <>
