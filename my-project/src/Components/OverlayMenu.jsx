@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiX } from "react-icons/fi";
 
 export default function OverlayMenu({ isOpen, onClose }) {
-  // Determine origin for clip-path animation
+  
   const isMobile =
     typeof window !== "undefined" && window.innerWidth < 1024;
   const origin = isMobile ? "95% 8%" : "50% 8%";
@@ -36,7 +36,7 @@ export default function OverlayMenu({ isOpen, onClose }) {
             <FiX />
           </button>
 
-          {/* Menu Items */}
+          
           <ul className="space-y-6 text-center">
             {menuItems.map((item, index) => (
               <motion.li
