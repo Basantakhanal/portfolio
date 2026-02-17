@@ -58,7 +58,7 @@ export default function About() {
               Basanta Khanal
             </h2>
             <p className="mt-2 text-lg sm:text-xl text-white/90 font-semibold">
-              Full Stack Developer
+              FrontEnd Developer
             </p>
             <p className="mt-4 text-gray-300 leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl">
               I am a passionate Computer Engineer with a strong interest in software development, web technologies, and problem-solving. I enjoy building modern applications using tools like Flask, React, and databases such as SQLite. I focus on creating efficient, user-friendly, and impactful projects. I am always excited to explore new technologies, take on challenges, and grow as a future engineer in the field of computer science and innovation.

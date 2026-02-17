@@ -36,24 +36,29 @@ export default function Projects() {
   const isMobile = useIsMobile();
   const sceneRef = useRef(null);
 
-  /* ✅ Projects Data */
+  /* ✅ Projects Data with Descriptions */
   const projects = useMemo(
     () => [
-     
       {
         title: "Route Hive",
         link: "https://github.com/Basantakhanal/Route-Hive",
         image: photo4,
+        description:
+          "Route Hive is a smart transportation app that integrates real-time route mapping for school buses, optimizing driver and student management.",
       },
       {
         title: "CuraMind",
         link: "https://github.com/Basantakhanal/CURAMIND",
         image: cura,
+        description:
+          "CuraMind is a mental health management platform that provides users with tools to track mood, access resources, and maintain wellbeing effectively.",
       },
-       {
+      {
         title: "Faculty Management System",
         link: "https://github.com/Basantakhanal/Qt-project",
         image: FMS1,
+        description:
+          "A comprehensive system to manage faculty information, schedules, and performance, simplifying administration for educational institutions.",
       },
     ],
     []
@@ -89,7 +94,6 @@ export default function Projects() {
       }}
     >
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
-        
         {/* 🔥 Attractive Heading */}
         <h2
           className="text-4xl sm:text-5xl font-extrabold z-10 text-center mt-8 
@@ -99,56 +103,58 @@ export default function Projects() {
           My Projects 🚀
         </h2>
 
-        {/* ✅ Project Image Container */}
-        <div className="relative flex-1 flex items-center justify-center w-full max-w-5xl mx-auto px-4">
+        {/* ✅ Project Image + Description Container */}
+        <div className="relative flex-1 flex items-center justify-center w-full max-w-7xl mx-auto px-4">
           {projects.map((project, idx) => (
             <div
               key={project.title}
               className={`absolute top-1/2 left-1/2 
                 -translate-x-1/2 -translate-y-1/2 
-                transition-all duration-500 ${
+                transition-all duration-500 flex ${
                   activeIndex === idx
                     ? "opacity-100 z-20 scale-100"
                     : "opacity-0 z-0 scale-95"
-                }`}
+                } flex-col md:flex-row md:items-center md:gap-10`}
               style={{
-                width: "90%", // ✅ Same for all projects
-                maxWidth: "1000px",
+                width: "95%",
+                maxWidth: "1300px", // increased max width for bigger container
               }}
             >
-              {/* ✅ Animated Title */}
+              {/* ✅ Glowy Description Container */}
               <AnimatePresence mode="wait">
                 {activeIndex === idx && (
-                  <motion.h3
-                    key={project.title}
-                    initial={{ opacity: 0, y: -30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 30 }}
+                  <motion.div
+                    key={project.title + "-desc-container"}
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -50 }}
                     transition={{ duration: 0.5 }}
-                    className="block text-center 
-                      text-[clamp(1.2rem,4vw,3rem)] 
-                      text-white/95 
-                      sm:absolute sm:-top-16 sm:left-0 
-                      italic font-bold drop-shadow-xl"
+                    className="hidden md:flex flex-col justify-center max-w-xs p-6
+                      bg-gradient-to-br from-white/90 to-white/70
+                      border border-white/50 rounded-2xl
+                      shadow-[0_0_25px_rgba(255,255,255,0.6),0_0_40px_rgba(0,0,0,0.2)]
+                      backdrop-blur-md"
                   >
-                    {project.title}
-                  </motion.h3>
+                    <h3 className="text-3xl font-bold mb-4 text-black drop-shadow-lg">
+                      {project.title}
+                    </h3>
+                    <p className="text-black/90 text-lg">{project.description}</p>
+                  </motion.div>
                 )}
               </AnimatePresence>
 
               {/* ✅ Image Card */}
               <div
-                className="relative w-full flex items-center justify-center 
-                overflow-hidden shadow-2xl 
-                md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7)] 
-                rounded-2xl bg-white/10 backdrop-blur-md p-4
-                border border-white/20 hover:border-white/40 transition-all"
+                className="relative w-full md:w-3/4 flex items-center justify-center 
+                  overflow-hidden shadow-2xl 
+                  md:shadow-[0_60px_120px_-30px_rgba(0,0,0,0.75)] 
+                  rounded-3xl bg-white/10 backdrop-blur-md p-6
+                  border border-white/20 hover:border-white/40 transition-all"
               >
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-auto object-contain 
-                  transition-transform duration-500 hover:scale-105"
+                  className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" // bigger scale on hover
                   loading="lazy"
                 />
               </div>

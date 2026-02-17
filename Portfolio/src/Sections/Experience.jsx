@@ -42,74 +42,51 @@ export default function Experience() {
 
       {/* Desktop Layout */}
       {!isMobile && (
-        <div className="relative max-w-6xl mx-auto">
-          {/* Timeline Line */}
-          <div className="absolute top-6 left-0 right-0 h-[4px] bg-gradient-to-r from-indigo-500 to-purple-500 rounded" />
-
-          <div className="flex justify-between relative">
-            {experiences.map((exp, idx) => (
-              <div
-                key={idx}
-                className="relative flex flex-col items-center w-1/3"
-              >
-                {/* Dot */}
-                <div className="w-6 h-6 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 shadow-lg mb-10" />
-
-                {/* Card */}
-                <div
-                  className={`${
-                    idx % 2 === 0 ? "mt-6" : "mt-20"
-                  } bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl p-8 w-[320px] shadow-[0_0_40px_rgba(99,102,241,0.15)] hover:shadow-[0_0_60px_rgba(168,85,247,0.3)] transition-all duration-300`}
-                >
-                  <span className="text-sm text-indigo-400 font-semibold">
-                    {exp.duration}
-                  </span>
-                  <h3 className="text-xl font-bold mt-3 mb-2 text-white">
-                    {exp.role}
-                  </h3>
-                  <p className="text-indigo-300 text-sm mb-4 font-medium">
-                    {exp.company}
-                  </p>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    {exp.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="relative max-w-6xl mx-auto flex justify-between items-start">
+          {experiences.map((exp, idx) => (
+            <div
+              key={idx}
+              className={`${
+                idx % 2 === 0 ? "mt-6" : "mt-20"
+              } bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl p-8 w-[320px] shadow-[0_0_40px_rgba(99,102,241,0.15)] hover:shadow-[0_0_60px_rgba(168,85,247,0.3)] transition-all duration-300`}
+            >
+              <span className="text-sm text-indigo-400 font-semibold">
+                {exp.duration}
+              </span>
+              <h3 className="text-xl font-bold mt-3 mb-2 text-white">
+                {exp.role}
+              </h3>
+              <p className="text-indigo-300 text-sm mb-4 font-medium">
+                {exp.company}
+              </p>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                {exp.description}
+              </p>
+            </div>
+          ))}
         </div>
       )}
 
       {/* Mobile Layout */}
       {isMobile && (
-        <div className="relative max-w-md mx-auto">
-          {/* Vertical Line */}
-          <div className="absolute left-4 top-0 bottom-0 w-[3px] bg-gradient-to-b from-indigo-500 to-purple-500 rounded" />
-
-          <div className="flex flex-col gap-16 ml-12">
-            {experiences.map((exp, idx) => (
-              <div key={idx} className="relative">
-                {/* Dot */}
-                <div className="absolute -left-[34px] top-2 w-5 h-5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 shadow-md" />
-
-                {/* Card */}
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl p-6 shadow-[0_0_40px_rgba(99,102,241,0.15)]">
-                  <span className="text-xs text-indigo-400 font-semibold">
-                    {exp.duration}
-                  </span>
-                  <h3 className="text-lg font-bold mt-2 text-white">
-                    {exp.role}
-                  </h3>
-                  <p className="text-indigo-300 text-sm mb-3 font-medium">
-                    {exp.company}
-                  </p>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    {exp.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="relative max-w-md mx-auto flex flex-col gap-16">
+          {experiences.map((exp, idx) => (
+            <div
+              key={idx}
+              className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl p-6 shadow-[0_0_40px_rgba(99,102,241,0.15)]"
+            >
+              <span className="text-xs text-indigo-400 font-semibold">
+                {exp.duration}
+              </span>
+              <h3 className="text-lg font-bold mt-2 text-white">{exp.role}</h3>
+              <p className="text-indigo-300 text-sm mb-3 font-medium">
+                {exp.company}
+              </p>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                {exp.description}
+              </p>
+            </div>
+          ))}
         </div>
       )}
     </section>
