@@ -1,11 +1,11 @@
 import Experience from "./Sections/Experience";
-import Testimonials from "./Sections/Testimonials";
+// import Testimonials from "./Sections/Testimonials";
 import Navbar from "./Components/Navbar";
 import Home from "./Sections/Home";
 import Skills from "./Sections/Skills";
 import Contact from "./Sections/Contact";
 import Project from "./Sections/Project";
-import Footers from "./Sections/Footers";
+// import Footers from "./Sections/Footers";
 import CustomCursor from "./Components/CustomCursor";
 import React from "react";
 import IntroAnimation from "./Components/IntroAnimation";
@@ -26,9 +26,9 @@ export default function App() {
           <Skills />
           <Project />
           <Experience />
-          <Testimonials />
+          {/* <Testimonials /> */}
           <Contact />
-          <Footers />
+          {/* <Footers /> */}
         </div>
       )}
     </>

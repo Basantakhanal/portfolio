@@ -3,11 +3,13 @@ import { motion } from "framer-motion";
 import ParticlesBackgrounds from "../Components/ParticlesBackgrounds";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import avatar from "../assets/avator.png";
+import { FaInstagram } from "react-icons/fa";
 
 const socials = [
   { icon: FaXTwitter, label: "X", href: "https://x.com/home" },
-  { icon: FaLinkedin, label: "LinkedIn", href: "https://linkedin.com" },
+  // { icon: FaLinkedin, label: "LinkedIn", href: "https://linkedin.com" },
   { icon: FaGithub, label: "GitHub", href: "https://github.com/Basantakhanal" },
+    { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/bas._.anta/" }
 ];
 
 export default function Home() {

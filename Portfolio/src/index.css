@@ -14,3 +14,12 @@ h1,h2
     background: linear-gradient(-45 deg #302b63,#00bf8f,#1cd8d2);
 }
 }
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}

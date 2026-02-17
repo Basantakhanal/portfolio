@@ -73,13 +73,15 @@ export default function Navbar() {
           visible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="flex items-center space-x-2">
-          <img src={Logo} alt="logo" className="w-8 h-8" />
+        {/* Logo + Name */}
+        <div className="flex items-center space-x-1">
+          <img src={Logo} alt="logo" className="w-10 h-10" />
           <div className="text-2xl font-bold text-white hidden sm:block">
             Basanta
           </div>
         </div>
 
+        {/* Hamburger Button */}
         <div className="block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
           <button
             onClick={() => setMenuOpen(true)}
@@ -90,6 +92,7 @@ export default function Navbar() {
           </button>
         </div>
 
+        {/* Reachout Button */}
         <div className="hidden lg:block">
           <a
             href="#contact"
@@ -100,6 +103,7 @@ export default function Navbar() {
         </div>
       </nav>
 
+      {/* Overlay Menu */}
       <Overlaymenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
     </>
   );
