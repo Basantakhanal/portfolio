@@ -10,12 +10,20 @@ import Project from "./Sections/Project";
 import Footers from "./Sections/Footers";
 // import ParticlesBackgrounds from "./Components/ParticlesBackgrounds";
 import CustomCursor from "./Components/CustomCursor"
+import React from "react";
+import IntroAnimation from"./Components/IntroAnimation";
 
 
 
 
   export default function App(){
+    const[introDone,setIntroDone]=React.useState(false);
   return( 
+
+<>
+{!introDone&&<IntroAnimation onFinish={()=>setIntroDone(true)}/>}
+{introDone &&(
+
  <div className="relative min-h-screen bg-gradient-to-br from-[#302b63] via-[#00bf8f] to-[#1cd8d2] text-white">
 {/* <ParticlesBackgrounds></ParticlesBackgrounds> */}
 <CustomCursor></CustomCursor>
@@ -27,5 +35,8 @@ import CustomCursor from "./Components/CustomCursor"
     <Testimonials></Testimonials>
     <Contact></Contact>
     <Footers></Footers>
-  </div>)
+  </div>
+  )}
+  </>
+  )
 }
