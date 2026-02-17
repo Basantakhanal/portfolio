@@ -6,7 +6,7 @@ export default function IntroAnimation({ onFinish }) {
   const greetings = useMemo(
     () => [
       "Hello",
-      "नमस्ते",
+      
       "Hola",
       "Bonjour",
       "Ciao",
@@ -17,6 +17,7 @@ export default function IntroAnimation({ onFinish }) {
       "Hej",
       "Hallo",
       "Salam",
+      "नमस्ते",
     ],
     []
   );
