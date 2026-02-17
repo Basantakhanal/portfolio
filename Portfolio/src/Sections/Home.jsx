@@ -74,7 +74,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            Hello I'm <br />
+            Hello,I'm <br />
             <span className="text-white">Basanta Khanal</span>
           </motion.h1>
 

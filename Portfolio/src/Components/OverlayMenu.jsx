@@ -1,10 +1,15 @@
-import { motion,AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FiX } from "react-icons/fi";
+import React from "react";
 
 export default function OverlayMenu({ isOpen, onClose }) {
-  
-  const isMobile =
-    typeof window !== "undefined" && window.innerWidth < 1024;
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  // Detect mobile after mount to avoid SSR issues
+  React.useEffect(() => {
+    setIsMobile(window.innerWidth < 1024);
+  }, []);
+
   const origin = isMobile ? "95% 8%" : "50% 8%";
 
   const menuItems = [
@@ -20,6 +25,7 @@ export default function OverlayMenu({ isOpen, onClose }) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          key="overlay-menu"
           className="fixed inset-0 flex items-center justify-center z-50"
           initial={{ clipPath: `circle(0% at ${origin})` }}
           animate={{ clipPath: `circle(150% at ${origin})` }}
@@ -36,7 +42,7 @@ export default function OverlayMenu({ isOpen, onClose }) {
             <FiX />
           </button>
 
-          
+          {/* Menu Items */}
           <ul className="space-y-6 text-center">
             {menuItems.map((item, index) => (
               <motion.li
