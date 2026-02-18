@@ -1,22 +1,22 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ParticlesBackgrounds from "../Components/ParticlesBackgrounds";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaXTwitter } from "react-icons/fa6";
 import avatar from "../assets/avator.png";
 import { FaInstagram } from "react-icons/fa";
 
 const socials = [
   { icon: FaXTwitter, label: "X", href: "https://x.com/home" },
-  // { icon: FaLinkedin, label: "LinkedIn", href: "https://linkedin.com" },
   { icon: FaGithub, label: "GitHub", href: "https://github.com/Basantakhanal" },
-    { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/bas._.anta/" }
+  {
+    icon: FaInstagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/bas._.anta/",
+  },
 ];
 
 export default function Home() {
-  const roles = useMemo(
-    () => ["Web Developer", "Frontend Developer"],
-    []
-  );
+  const roles = useMemo(() => ["Web Developer", "Frontend Developer"], []);
 
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
@@ -56,10 +56,8 @@ export default function Home() {
       </div>
 
       <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
-        
         {/* Left Side */}
         <div className="flex flex-col justify-center h-full text-left lg:pl-20 xl:pl-28">
-          
           <motion.div
             className="mb-4 text-2xl sm:text-3xl font-semibold text-white min-h-[1.6em]"
             initial={{ opacity: 0, y: 12 }}
@@ -76,7 +74,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            Hello,I'm <br />
+            Hello, I'm <br />
             <span className="text-white">Basanta Khanal</span>
           </motion.h1>
 
@@ -86,9 +84,9 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            I am a Computer Engineer from Nepal. Deeply interested in
-            technology, coding, and solving complex problems. My aim is to grow
-            into a competent engineer and build innovative solutions.
+            I am a Computer Engineer from Nepal. Deeply interested in technology,
+            coding, and solving complex problems. My aim is to grow into a
+            competent engineer and build innovative solutions.
           </motion.p>
 
           <motion.div
@@ -104,13 +102,15 @@ export default function Home() {
               View My Work
             </a>
 
-            <a
-              href="/My Resume.pdf"
-              download
-              className="px-6 py-3 rounded-full font-medium bg-white text-black hover:bg-gray-200 transition"
-            >
-              My Resume
-            </a>
+            {/* ✅ FIXED Resume Download */}
+           <a
+  href="/MyResume.pdf"
+  download
+  className="px-6 py-3 rounded-full font-medium bg-white text-black hover:bg-gray-200 transition"
+>
+  My Resume
+</a>
+
           </motion.div>
 
           {/* Social Icons */}
@@ -131,13 +131,13 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right Side Image with Glow */}
+        {/* Right Side Image */}
         <div className="hidden lg:flex items-center justify-center relative">
-
-          <div className="absolute w-[420px] h-[420px] rounded-full 
+          <div
+            className="absolute w-[420px] h-[420px] rounded-full 
           bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63]
-          blur-[140px] opacity-40 animate-pulse">
-          </div>
+          blur-[140px] opacity-40 animate-pulse"
+          ></div>
 
           <motion.img
             src={avatar}
@@ -149,7 +149,6 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           />
         </div>
-
       </div>
     </section>
   );

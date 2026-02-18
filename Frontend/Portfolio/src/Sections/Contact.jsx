@@ -5,6 +5,46 @@ import AVG from "../assets/AVG.JPEG";
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    service: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -15,10 +55,8 @@ export default function ContactForm() {
         backgroundPosition: "center",
       }}
     >
-      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/70"></div>
 
-      {/* Particles */}
       <Particles
         options={{
           background: { color: "transparent" },
@@ -34,25 +72,19 @@ export default function ContactForm() {
         className="absolute inset-0 -z-10"
       />
 
-      {/* Content */}
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-center px-6">
 
-        {/* Title */}
         <h1 className="text-white text-3xl md:text-4xl font-bold text-center">
           Contact Me
         </h1>
 
-        {/* Subtitle */}
         <p className="text-gray-300 text-center mt-2 mb-6 text-base md:text-lg">
           Want to collaborate with me?
         </p>
 
         {!submitted ? (
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSubmitted(true);
-            }}
+            onSubmit={sendEmail}
             className="bg-[#0f172a]/90 border border-white/10 rounded-2xl p-6 shadow-2xl backdrop-blur-xl max-w-xl w-full"
           >
             {/* Name */}
@@ -62,7 +94,10 @@ export default function ContactForm() {
               </span>
               <input
                 type="text"
+                name="name"
                 required
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Your Name"
                 className="mt-1.5 w-full rounded-md bg-[#111827] text-white border border-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 px-3 py-2 transition"
               />
@@ -75,7 +110,10 @@ export default function ContactForm() {
               </span>
               <input
                 type="email"
+                name="email"
                 required
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Your Email"
                 className="mt-1.5 w-full rounded-md bg-[#111827] text-white border border-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 px-3 py-2 transition"
               />
@@ -87,8 +125,10 @@ export default function ContactForm() {
                 Service Needed <span className="text-red-500">*</span>
               </span>
               <select
+                name="service"
                 required
-                defaultValue=""
+                value={formData.service}
+                onChange={handleChange}
                 className="mt-1.5 w-full rounded-md bg-[#111827] text-white border border-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 px-3 py-2 transition"
               >
                 <option value="" disabled>
@@ -101,34 +141,22 @@ export default function ContactForm() {
               </select>
             </label>
 
-            {/* Budget */}
-            <label className="block mb-3">
-              <span className="text-gray-300 text-xs">
-                Your Budget ($) <span className="text-red-500">*</span>
-              </span>
-              <input
-                type="number"
-                required
-                min="0"
-                placeholder="Enter your budget"
-                className="mt-1.5 w-full rounded-md bg-[#111827] text-white border border-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 px-3 py-2 transition"
-              />
-            </label>
-
             {/* Idea */}
             <label className="block mb-4">
               <span className="text-gray-300 text-xs">
                 Explain Your Idea <span className="text-red-500">*</span>
               </span>
               <textarea
+                name="message"
                 required
                 rows={2}
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="Explain your idea..."
                 className="mt-1.5 w-full rounded-md bg-[#111827] text-white border border-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 px-3 py-2 resize-none transition"
               />
             </label>
 
-            {/* Button */}
             <button
               type="submit"
               className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 text-white font-semibold py-2 rounded-lg shadow-lg hover:shadow-blue-500/30"

@@ -73,13 +73,13 @@ export default function Navbar() {
           visible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        {/* Logo + Name */}
-        <div className="flex items-center space-x-1">
+        {/* ✅ Logo + Name Redirect to Home */}
+        <a href="#home" className="flex items-center space-x-1 cursor-pointer">
           <img src={Logo} alt="logo" className="w-10 h-10" />
-          <div className="text-2xl font-bold text-white hidden sm:block">
+          <div className="text-2xl font-bold text-white hidden sm:block hover:text-gray-300 transition">
             Basanta
           </div>
-        </div>
+        </a>
 
         {/* Hamburger Button */}
         <div className="block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">

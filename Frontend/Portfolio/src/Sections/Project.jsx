@@ -117,28 +117,30 @@ export default function Projects() {
                 } flex-col md:flex-row md:items-center md:gap-10`}
               style={{
                 width: "95%",
-                maxWidth: "1300px", // increased max width for bigger container
+                maxWidth: "1300px",
               }}
             >
-              {/* ✅ Glowy Description Container */}
+              {/* ✅ Glowy Description Container (NOW VISIBLE ON MOBILE ALSO) */}
               <AnimatePresence mode="wait">
                 {activeIndex === idx && (
                   <motion.div
                     key={project.title + "-desc-container"}
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 30 }}
                     transition={{ duration: 0.5 }}
-                    className="hidden md:flex flex-col justify-center max-w-xs p-6
+                    className="flex flex-col justify-center w-full md:max-w-xs p-5 mb-6 md:mb-0
                       bg-gradient-to-br from-white/90 to-white/70
                       border border-white/50 rounded-2xl
                       shadow-[0_0_25px_rgba(255,255,255,0.6),0_0_40px_rgba(0,0,0,0.2)]
                       backdrop-blur-md"
                   >
-                    <h3 className="text-3xl font-bold mb-4 text-black drop-shadow-lg">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-3 text-black drop-shadow-lg text-center md:text-left">
                       {project.title}
                     </h3>
-                    <p className="text-black/90 text-lg">{project.description}</p>
+                    <p className="text-black/90 text-base md:text-lg text-center md:text-left">
+                      {project.description}
+                    </p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -154,7 +156,7 @@ export default function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" // bigger scale on hover
+                  className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110"
                   loading="lazy"
                 />
               </div>
