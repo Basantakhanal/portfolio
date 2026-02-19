@@ -46,18 +46,35 @@ export default function Home() {
       id="home"
       className="w-full h-screen relative bg-black overflow-hidden"
     >
+      {/* Background Particles */}
       <ParticlesBackgrounds />
 
       {/* Gradient blobs */}
       <div className="absolute inset-0">
-        <div className="absolute -top-32 -left-32 w-[70vw] sm:w-[50vw] md:w-[40vw] h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-20 blur-[120px] animate-pulse"></div>
+        <div
+          className="absolute -top-32 -left-32 w-[70vw] sm:w-[50vw] md:w-[40vw]
+          h-[70vw] sm:h-[50vw] md:h-[40vw]
+          max-w-[500px] max-h-[500px]
+          rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2]
+          opacity-20 blur-[120px] animate-pulse"
+        ></div>
 
-        <div className="absolute bottom-0 right-0 w-[70vw] sm:w-[50vw] md:w-[40vw] h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-20 blur-[120px] animate-pulse delay-500"></div>
+        <div
+          className="absolute bottom-0 right-0 w-[70vw] sm:w-[50vw] md:w-[40vw]
+          h-[70vw] sm:h-[50vw] md:h-[40vw]
+          max-w-[500px] max-h-[500px]
+          rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2]
+          opacity-20 blur-[120px] animate-pulse delay-500"
+        ></div>
       </div>
 
+      {/* Main Content */}
       <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
+        
         {/* Left Side */}
         <div className="flex flex-col justify-center h-full text-left lg:pl-20 xl:pl-28">
+          
+          {/* Typing Role Animation */}
           <motion.div
             className="mb-4 text-2xl sm:text-3xl font-semibold text-white min-h-[1.6em]"
             initial={{ opacity: 0, y: 12 }}
@@ -68,8 +85,10 @@ export default function Home() {
             <span className="inline-block w-[2px] ml-1 bg-white animate-pulse align-middle h-[1em]" />
           </motion.div>
 
+          {/* Name Heading */}
           <motion.h1
-            className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63]"
+            className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text 
+            bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -78,6 +97,7 @@ export default function Home() {
             <span className="text-white">Basanta Khanal</span>
           </motion.h1>
 
+          {/* Description */}
           <motion.p
             className="mt-6 text-gray-300 max-w-xl"
             initial={{ opacity: 0 }}
@@ -89,22 +109,26 @@ export default function Home() {
             competent engineer and build innovative solutions.
           </motion.p>
 
+          {/* Buttons */}
           <motion.div
             className="mt-8 flex flex-wrap gap-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
+            {/* Projects Button */}
             <a
               href="#projects"
-              className="py-3 px-6 rounded-full font-medium text-white bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] hover:scale-105 transition"
+              className="py-3 px-6 rounded-full font-medium text-white 
+              bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] 
+              hover:scale-105 transition"
             >
               View My Work
             </a>
 
-            {/* ✅ FIXED Resume Download */}
-           <a
-  href="/MyResume.pdf"
+            {/* ✅ Resume Download Button FIXED for GitHub Pages */}
+         <a
+  href="/Portfolio/Myresume.pdf"
   download
   className="px-6 py-3 rounded-full font-medium bg-white text-black hover:bg-gray-200 transition"
 >
@@ -133,12 +157,15 @@ export default function Home() {
 
         {/* Right Side Image */}
         <div className="hidden lg:flex items-center justify-center relative">
+          
+          {/* Glow Background */}
           <div
             className="absolute w-[420px] h-[420px] rounded-full 
-          bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63]
-          blur-[140px] opacity-40 animate-pulse"
+            bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63]
+            blur-[140px] opacity-40 animate-pulse"
           ></div>
 
+          {/* Avatar */}
           <motion.img
             src={avatar}
             alt="Basanta Khanal"
