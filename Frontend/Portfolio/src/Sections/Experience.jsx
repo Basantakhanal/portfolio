@@ -25,70 +25,66 @@ const experiences = [
 ];
 
 export default function Experience() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
   return (
-    <section id="experience" className="bg-black text-white py-24 px-6">
-      <h2 className="text-4xl sm:text-5xl font-semibold mb-20 text-center bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+    <section
+      id="experience"
+      className="bg-gradient-to-br 
+      from-[#0f172a] via-[#0b1b3a] to-[#020617] 
+      text-white py-20 sm:py-24 px-4 sm:px-6"
+    >
+      <h2
+        className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-16 sm:mb-20 text-center 
+        bg-gradient-to-r from-indigo-400 to-purple-400 
+        bg-clip-text text-transparent"
+      >
         Experience
       </h2>
 
-      {/* Desktop Layout */}
-      {!isMobile && (
-        <div className="relative max-w-6xl mx-auto flex justify-between items-start">
-          {experiences.map((exp, idx) => (
-            <div
-              key={idx}
-              className={`${
-                idx % 2 === 0 ? "mt-6" : "mt-20"
-              } bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl p-8 w-[320px] shadow-[0_0_40px_rgba(99,102,241,0.15)] hover:shadow-[0_0_60px_rgba(168,85,247,0.3)] transition-all duration-300`}
-            >
-              <span className="text-sm text-indigo-400 font-semibold">
-                {exp.duration}
-              </span>
-              <h3 className="text-xl font-bold mt-3 mb-2 text-white">
-                {exp.role}
-              </h3>
-              <p className="text-indigo-300 text-sm mb-4 font-medium">
-                {exp.company}
-              </p>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                {exp.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      )}
+      <div
+        className="
+        max-w-7xl mx-auto
+        flex flex-col
+        md:flex-row
+        md:justify-between
+        items-center md:items-start
+        gap-10 md:gap-0
+      "
+      >
+        {experiences.map((exp, idx) => (
+          <div
+            key={idx}
+            className={`
+              bg-[#111827] 
+              border border-white/10 
+              rounded-2xl 
+              p-6 sm:p-8 md:p-10
+              w-full
+              md:w-[360px]
+              lg:w-[380px]
+              shadow-[0_15px_40px_rgba(0,0,0,0.6)]
+              hover:shadow-[0_25px_70px_rgba(0,0,0,0.8)]
+              transition-all duration-300
+              ${idx % 2 === 0 ? "md:mt-6" : "md:mt-20"}
+            `}
+          >
+            <span className="text-sm sm:text-base text-indigo-400 font-semibold">
+              {exp.duration}
+            </span>
 
-      {/* Mobile Layout */}
-      {isMobile && (
-        <div className="relative max-w-md mx-auto flex flex-col gap-16">
-          {experiences.map((exp, idx) => (
-            <div
-              key={idx}
-              className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl p-6 shadow-[0_0_40px_rgba(99,102,241,0.15)]"
-            >
-              <span className="text-xs text-indigo-400 font-semibold">
-                {exp.duration}
-              </span>
-              <h3 className="text-lg font-bold mt-2 text-white">{exp.role}</h3>
-              <p className="text-indigo-300 text-sm mb-3 font-medium">
-                {exp.company}
-              </p>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                {exp.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      )}
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold mt-3 sm:mt-4 mb-2 sm:mb-3 text-white">
+              {exp.role}
+            </h3>
+
+            <p className="text-indigo-300 text-sm sm:text-base mb-3 sm:mb-5 font-medium">
+              {exp.company}
+            </p>
+
+            <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+              {exp.description}
+            </p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
