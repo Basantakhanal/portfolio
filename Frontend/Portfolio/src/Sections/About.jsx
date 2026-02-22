@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function About() {
   const stats = [
-    { label: "Experience", value: "1+ years" },
+    { label: "Experience", value: "" },
     { label: "Speciality", value: "UI" },
     { label: "Focus", value: "Performance & UX" },
   ];
