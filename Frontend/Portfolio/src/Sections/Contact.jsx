@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Particles from "react-tsparticles";
-import AVG from "../assets/AVG.JPEG";
+import AVG from "../assets/AVG.jpeg";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
