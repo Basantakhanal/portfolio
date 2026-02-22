@@ -8,7 +8,7 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    service: "",
+    
     message: "",
   });
 
@@ -120,31 +120,12 @@ export default function ContactForm() {
             </label>
 
             {/* Service */}
-            <label className="block mb-3">
-              <span className="text-gray-300 text-xs">
-                Service Needed <span className="text-red-500">*</span>
-              </span>
-              <select
-                name="service"
-                required
-                value={formData.service}
-                onChange={handleChange}
-                className="mt-1.5 w-full rounded-md bg-[#111827] text-white border border-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 px-3 py-2 transition"
-              >
-                <option value="" disabled>
-                  Something in mind?
-                </option>
-                <option>Web Development</option>
-                <option>Mobile Development</option>
-                <option>UI/UX Design</option>
-                <option>Consulting</option>
-              </select>
-            </label>
+           
 
             {/* Idea */}
             <label className="block mb-4">
               <span className="text-gray-300 text-xs">
-                Explain Your Idea <span className="text-red-500">*</span>
+                Your message <span className="text-red-500">*</span>
               </span>
               <textarea
                 name="message"
@@ -152,7 +133,7 @@ export default function ContactForm() {
                 rows={2}
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Explain your idea..."
+                placeholder="your message"
                 className="mt-1.5 w-full rounded-md bg-[#111827] text-white border border-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 px-3 py-2 resize-none transition"
               />
             </label>

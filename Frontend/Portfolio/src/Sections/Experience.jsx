@@ -28,14 +28,12 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="bg-gradient-to-br 
-      from-[#0f172a] via-[#0b1b3a] to-[#020617] 
-      text-white py-20 sm:py-24 px-4 sm:px-6"
+      className="min-h-screen py-24 px-6 
+      bg-gradient-to-br 
+      from-[#0f172a] via-[#0b1b3a] to-[#020617]"
     >
       <h2
-        className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-16 sm:mb-20 text-center 
-        bg-gradient-to-r from-indigo-400 to-purple-400 
-        bg-clip-text text-transparent"
+        className="text-4xl md:text-5xl font-bold mb-16 text-white text-center"
       >
         Experience
       </h2>
