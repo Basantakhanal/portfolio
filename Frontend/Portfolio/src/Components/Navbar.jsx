@@ -5,6 +5,7 @@ import { FiMenu } from "react-icons/fi";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+
   const [visible, setVisible] = useState(true);
   const [forceVisible, setForceVisible] = useState(false);
 
@@ -12,6 +13,9 @@ export default function Navbar() {
   const timerId = useRef(null);
 
   // Intersection Observer to always show navbar at #home
+  
+  
+
   useEffect(() => {
     const homeSection = document.querySelector("#home");
     if (!homeSection) return;
