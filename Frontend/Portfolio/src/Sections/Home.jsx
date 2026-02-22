@@ -128,7 +128,7 @@ export default function Home() {
 
             {/* ✅ Resume Download Button FIXED for GitHub Pages */}
          <a
-  href="/Portfolio/Myresume.pdf"
+  href="/Myresume.pdf"
   download
   className="px-6 py-3 rounded-full font-medium bg-white text-black hover:bg-gray-200 transition"
 >

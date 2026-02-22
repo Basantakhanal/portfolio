@@ -43,7 +43,7 @@ export default function Projects() {
   };
 
   return (
-    <section
+    <section id="projects"
       className="min-h-screen py-24 px-6 
       bg-gradient-to-br 
       from-[#0f172a] via-[#0b1b3a] to-[#020617]"
