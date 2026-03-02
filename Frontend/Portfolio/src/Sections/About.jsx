@@ -39,9 +39,9 @@ export default function About() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.4 }}
         >
-          {/* Profile Image */}
+          {/* Bigger Profile Image */}
           <motion.div
-            className="relative w-[160px] h-[160px] md:w-[200px] md:h-[200px] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#1cd8d2]/20 to-[#302b63]/20 border border-[#1cd8d2]/25"
+            className="relative w-[220px] h-[220px] md:w-[300px] md:h-[300px] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#1cd8d2]/20 to-[#302b63]/20 border border-[#1cd8d2]/25"
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 200, damping: 18 }}
           >
@@ -52,16 +52,20 @@ export default function About() {
             />
           </motion.div>
 
-          {/* About Text */}
+          {/* Name + About Text */}
           <div className="flex-1 flex flex-col justify-center text-center md:text-left">
             <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#1cd8d2]">
-              Basanta Khanal
+              About Me
             </h2>
-            <p className="mt-2 text-lg sm:text-xl text-white/90 font-semibold">
-              FrontEnd Developer
-            </p>
+
             <p className="mt-4 text-gray-300 leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl">
-              I am a passionate Computer Engineer with a strong interest in software development, web technologies, and problem-solving. I enjoy building modern applications using tools like Flask, React, and databases such as SQLite. I focus on creating efficient, user-friendly, and impactful projects. I am always excited to explore new technologies, take on challenges, and grow as a future engineer in the field of computer science and innovation.
+              I am a passionate Computer Engineer with a strong interest in
+              software development, web technologies, and innovative
+              problem-solving. I enjoy creating efficient and user-friendly
+              applications, exploring modern technologies like React and Flask,
+              and working with databases to build scalable solutions. Driven by
+              curiosity and continuous learning, I strive to turn ideas into
+              practical projects that create meaningful impact.
             </p>
 
             {/* Stats */}
@@ -99,7 +103,7 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* About Me Paragraph */}
+        {/* About Me Heading Section (unchanged structure) */}
         <motion.div
           className="text-center md:text-left"
           initial={{ opacity: 0, x: -30 }}
@@ -107,12 +111,7 @@ export default function About() {
           transition={{ duration: 0.4 }}
           viewport={{ once: true, amount: 0.4 }}
         >
-          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-            About Me
-          </h3>
-          <p className="text-gray-300 leading-relaxed text-base sm:text-lg">
-            I am a Computer Engineer with a passion for technology, software development, and innovative problem-solving. I enjoy creating efficient and user-friendly applications, exploring modern web technologies like React and Flask, and working with databases to build organized and scalable solutions. Driven by curiosity and continuous learning, I strive to turn ideas into practical projects that make an impact. I am eager to grow as a developer and contribute to meaningful tech solutions in the future.
-          </p>
+         
         </motion.div>
       </div>
     </section>
